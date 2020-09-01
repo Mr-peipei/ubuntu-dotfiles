@@ -11,12 +11,15 @@ cp -e .tmux.conf ~/.tmux.conf
 cp -e .bashrc ~/.bashrc
 
 cp -r sh-file ~/sh-file
+cp -r cheatsheet.md ~/../../usr/local/share/vim
 
 # settings Plug Install
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim -c PlugInstall
+
+
 
 
 
