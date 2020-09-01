@@ -6,9 +6,9 @@ sudo apt-get upgrade -y
 
 sudo apt-get install -y git tmux python3 python3-dev
 
-cp -e .vimrc ~/.vimrc
-cp -e .tmux.conf ~/.tmux.conf
-cp -e .bashrc ~/.bashrc
+cp .vimrc ~/.vimrc
+cp .tmux.conf ~/.tmux.conf
+cp .bashrc ~/.bashrc
 
 cp -r sh-file ~/sh-file
 cp -r cheatsheet.md ~/../../usr/local/share/vim
