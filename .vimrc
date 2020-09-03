@@ -84,6 +84,9 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-commentary'
 "quickrun
 Plug 'thinca/vim-quickrun'
+"vim git settings
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
@@ -210,3 +213,17 @@ let g:lsp_settings = {
 \}
 let g:lsp_highlights_enabled = 0
 let g:lsp_textprop_enabled = 0
+
+"vim-gitgutter
+let g:gitgutter_highlight_lines = 1
+set updatetime=250
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=grey
+"vim-fugitive
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gc :Gcommit -m 
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gl :Glog<CR>
+nnoremap <leader>gb :Gblame<CR>
