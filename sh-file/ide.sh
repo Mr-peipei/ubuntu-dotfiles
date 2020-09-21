@@ -2,10 +2,11 @@ if [ "$#" -eq 0 ]; then
   tmux split-window -h
   tmux split-window -v
   tmux resize-pane -D 15
+  cd /mnt/c/Users/murakami/Documents
+  tmux select-pane -t 2
+  tmux clock-mode
   tmux select-pane -t 0
-  cd ~/../../mnt/c/Users/murakami/Documents
-  tmux select-pane -t 1
-  cd ~/../../mnt/c/Users/murakami/Documents
+  vim -c NERDTreeToggle
 else
   case $1 in
     1)
