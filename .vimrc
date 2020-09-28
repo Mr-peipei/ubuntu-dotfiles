@@ -2,6 +2,8 @@ set nobackup
 set number
 set noundofile
 set backspace=2
+set tabstop=2
+set shiftwidth=2
 set encoding =utf-8
 "show command mode with tab key
 set title
@@ -28,6 +30,9 @@ noremap <S-j>   }
 noremap <S-k>   {
 noremap <S-l>   $
 nnoremap <Space>v :vs
+"copy link windows clipboard
+nnoremap <silent>yank :.w !win32yank.exe -i<CR><CR>
+vnoremap <silent>yan :w !win32yank.exe -i<CR><CR>
 
 "Xy`bJ[
 
@@ -221,11 +226,16 @@ let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn ctermbg=grey
 "vim-fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
-nnoremap <leader>gc :Gcommit -m 
+nnoremap <leader>gc :Gcommit<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gl :Glog<CR>
 nnoremap <leader>gb :Gblame<CR>
 
-echo "hello"
+
+
+set guifont=Menlo\ for\ Powerline
+
+" quickrun settings
+nnoremap <Leader>q :<C-u>bw! \[quickrun\ output\]<CR>
