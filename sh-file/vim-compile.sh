@@ -1,3 +1,4 @@
+#version ubuntu 20.04
 
 sudo apt update
 cd /opt/
