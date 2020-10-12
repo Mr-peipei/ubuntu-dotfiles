@@ -44,7 +44,7 @@ set t_Co=256
 
 inoremap <silent> jj <ESC>
 
-colorscheme slate
+colorscheme delek
 
 
 call plug#begin()
@@ -59,7 +59,7 @@ Plug 'tpope/vim-sensible'
 Plug 'davidhalter/jedi-vim', {'for': 'python'} 
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'elixir-editors/vim-elixir'
+Plug '-editors/vim-elixir'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
@@ -92,6 +92,9 @@ Plug 'thinca/vim-quickrun'
 "vim git settings
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+"vim theme
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 
@@ -158,7 +161,7 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-i> unite#do_action('split
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>
 
-"enable elixir
+"enable 
 filetype plugin indent on
 "aysncomplete
 inoremap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -188,23 +191,27 @@ let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
 
 "modify nerdtree
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
-" アイコン入力方法 : `[Ctrl+V]` > `[u]` > `e905`
-let g:NERDTreeExtensionHighlightColor = {}
-let g:NERDTreeExtensionHighlightColor['vue'] = '42B983'
+" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['vue'] = ''
+" " アイコン入力方法 : `[Ctrl+V]` > `[u]` > `e905`
+" let g:NERDTreeExtensionHighlightColor = {}
+" let g:NERDTreeExtensionHighlightColor['vue'] = '42B983'
+
+"devicon
+let g:webdevicons_enable_nerdtree = 1
 
 " fzf settings 
 imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-k> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
-nnoremap <silent> <Leader>t :GFiles<CR>
-nnoremap <silent> <Leader>q :Files<CR>
+nnoremap <silent> <leader>t :GFiles<cr>
+nnoremap <silent> <leader>p :Files<cr>
+
 
 " color popup
-hi Pmenu ctermbg=7 ctermfg=0
-hi PmenuSel ctermbg=2 ctermfg=0
+hi pmenu ctermbg=7 ctermfg=0
+hi pmenusel ctermbg=2 ctermfg=0
 
 " lsp settings
 let g:lsp_settings = {
@@ -220,10 +227,15 @@ let g:lsp_highlights_enabled = 0
 let g:lsp_textprop_enabled = 0
 
 "vim-gitgutter
-let g:gitgutter_highlight_lines = 1
+let g:gitgutter_highlight_lines = 0
+highlight DiffAdd guifg=black guibg=wheat1
+highlight DiffChange guifg=black guibg=skyblue1
+highlight DiffDelete guifg=black guibg=gray45 gui=none
 set updatetime=250
 let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=grey
+highlight SignColumn ctermbg=black
+highlight GitGutterAdd ctermfg=blue ctermbg=black
+highlight GitGutterDeleteLine ctermfg=red ctermbg=black
 "vim-fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gc :Gcommit<CR><CR>
@@ -239,3 +251,13 @@ set guifont=Menlo\ for\ Powerline
 
 " quickrun settings
 nnoremap <Leader>q :<C-u>bw! \[quickrun\ output\]<CR>
+
+" vim airline theme
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'molokai'
+let g:airline_powerline_fonts = 1
+
+highlight Directory ctermfg=cyan
+
+" elixir setting
+imap >> \|><Space>
