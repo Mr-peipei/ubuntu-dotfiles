@@ -59,7 +59,7 @@ Plug 'tpope/vim-sensible'
 Plug 'davidhalter/jedi-vim', {'for': 'python'} 
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug '-editors/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
@@ -89,6 +89,8 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-commentary'
 "quickrun
 Plug 'thinca/vim-quickrun'
+"vim surrounded
+Plug 'tpope/vim-surround'
 "vim git settings
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -144,7 +146,7 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 map <C-n> :NERDTreeToggle<CR>
 
 
-let g:cheatsheet#cheat_file='$VIM/cheatsheet.md'
+let g:cheatsheet#cheat_file='/home/murakamishumpei/ubuntu-dotfiles/cheatsheet.md'
 
 " set pythonthreedll=C:\Users\murakami\AppData\Local\Programs\Python\Python36\python36.dll
 
@@ -250,7 +252,16 @@ nnoremap <leader>gb :Gblame<CR>
 set guifont=Menlo\ for\ Powerline
 
 " quickrun settings
-nnoremap <Leader>q :<C-u>bw! \[quickrun\ output\]<CR>
+nnoremap <Leader>c :QuickRun<CR>
+nnoremap <Leader>a :<C-u>bw! \[quickrun\ output\]<CR>
+let g:quickrun_config = get(g:, 'quickrun_config', {})
+let g:quickrun_config._ = {
+      \ 'outputter' : 'error',
+      \ 'outputter/error/success' : 'buffer',
+      \ 'outputter/error/error'   : 'quickfix',
+      \ 'outputter/buffer/split'  : ':rightbelow 8sp',
+      \ 'outputter/buffer/close_on_empty' : 1,
+      \ }
 
 " vim airline theme
 let g:airline#extensions#tabline#enabled = 1
@@ -261,3 +272,12 @@ highlight Directory ctermfg=cyan
 
 " elixir setting
 imap >> \|><Space>
+
+
+" clipboard
+set clipboard=unnamedplus
+
+" vim -surround
+let g:surround_45 = "<% \r %>"
+let g:surround_61 = "<%= \r %>"
+
