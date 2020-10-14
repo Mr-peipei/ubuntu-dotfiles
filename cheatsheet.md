@@ -1,9 +1,9 @@
 Welcome to peipei CheatSheat
 
-###Install NeoBundle
+### Install NeoBundle
 - NeoBundleInstall
 
-###easy motion command
+### easy motion command
 - <Leader> f :simple easy motion
 -s <Leader>  :s char char
 - <Leader> L :Move to Line
