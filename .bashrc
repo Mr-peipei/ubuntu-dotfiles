@@ -160,3 +160,24 @@ fshow() {
                 {}
 FZF-EOF"
 }
+
+alias pbcopy='xsel --clipboard --input'
+alias bt='bluetoothctl'
+alias desk='cd /home/murakamishumpei/デスクトップ/'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias la='ls -a'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gd='git diff'
+
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:/usr/local/bin/flutter/bin
+export PATH=$PATH:/usr/local/android-studio/bin
